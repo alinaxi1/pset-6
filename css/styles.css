@@ -1,0 +1,13 @@
+body {
+  font-family: Candara;
+}
+
+head {
+  border-bottom: 5px solid black;
+  text-align: center;
+  font-size: 75px;
+  padding: 0px;
+  font-style: normal;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-variant: normal;
+}
