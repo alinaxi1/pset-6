@@ -1,43 +1,45 @@
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+let ul = document.getElementById('uList');
+let events = [];
+
+let nodelist = document.getElementsByTagName("LI");
+for (let i = 0; i < nodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  nodelist[i].appendChild(span);
 }
 
-var close = document.getElementsByClassName("close");
-var i;
+let close = document.getElementsByClassName("close");
+let i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-    var div = this.parentElement;
+    let div = this.parentElement;
     div.style.display = "none";
   }
 }
 
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
+function addEvent() {
+  let input = document.getElementById('input').value;
+  let entry = document.createElement('li');
+  entry.appendChild(document.createTextNode(input));
+  if (input == null || input.length == 0) {
+    alert("You must write something.");
   } else {
-    document.getElementById("myUL").appendChild(li);
+    uList.appendChild(entry);
   }
-  document.getElementById("myInput").value = "";
+  events.push(input);
+  document.getElementById("input").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  li.appendChild(span);
+  entry.appendChild(span);
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
-      var div = this.parentElement;
+      let div = this.parentElement;
       div.style.display = "none";
     }
   }

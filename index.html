@@ -4,10 +4,9 @@
 
 <head>
   <h1>To-do List</h1>
-
-  <div id="myDIV" class="header">
-    <input type="text" id="myInput" placeholder="Title...">
-    <span onclick="newElement()" class="addBtn">Add</span>
+  <div id="headDiv">
+    <input type="text" id="input" placeholder="Add new event...">
+    <input type="button" id="add" value="Add" onclick="addEvent()">
   </div>
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -15,9 +14,12 @@
 </head>
 
 <body>
-  <ul id="myUL">
-    <li></li>
+<div id="bodyDiv">
+  <br>
+  <ul id="uList">
+
   </ul>
+</div>
 </body>
 
 </html>
