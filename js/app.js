@@ -21,6 +21,20 @@ for (let i = 0; i < nodelist.length; i++) {
   nodelist[i].appendChild(span);
 }
 
+for (let i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    let li = this.parentElement;
+    li.style.display = "none";
+  }
+}
+
+for (let i = 0; i < done.length; i++) {
+  done[i].onclick = function () {
+    let li = this.parentElement;
+    li.style.setProperty("text-decoration", "line-through");
+  }
+}
+
 function addEvent() {
   let input = document.getElementById('input').value;
   let entry = document.createElement('li');
