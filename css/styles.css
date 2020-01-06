@@ -51,10 +51,21 @@ input {
 .close {
    display:inline-block;
    vertical-align:right;
+   padding-left: 15px;
+   padding-right: 15px;
 }
 
 .close:hover {
   background-color: #f44336;
+  color: white;
+}
+
+.done {
+  text-decoration: none;
+}
+
+.done:hover {
+  background-color: green;
   color: white;
 }
 
