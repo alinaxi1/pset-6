@@ -1,82 +1,91 @@
-let ul = document.getElementById('uList');
-let events = [];
+let mylist=[];
 
-let nodelist = document.getElementsByTagName("LI");
-let close = document.getElementsByClassName("close");
-let done = document.getElementsByClassName("done");
-
-for (let i = 0; i < nodelist.length; i++) {
-  let span = document.createElement("SPAN");
-  let check = document.createTextNode("\u2713");
-  span.className = "done";
-  span.appendChild(check);
-  nodelist[i].appendChild(span);
-}
-
-for (let i = 0; i < nodelist.length; i++) {
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  nodelist[i].appendChild(span);
-}
-
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    let li = this.parentElement;
-    li.style.display = "none";
-  }
-}
-
-for (let i = 0; i < done.length; i++) {
-  done[i].onclick = function () {
-    let li = this.parentElement;
-    li.style.setProperty("text-decoration", "line-through");
-  }
-}
-
-function addEvent() {
-  let input = document.getElementById('input').value;
-  let entry = document.createElement('li');
-  entry.appendChild(document.createTextNode(input));
-  if (input == null || input.length == 0) {
-    alert("You must write something.");
-  } else {
-    uList.appendChild(entry);
-  }
-  events.push(input);
-  document.getElementById("input").value = "";
-
-//adds "x"
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  nodelist[i].appendChild(span);
+function remove()
+    {
+    let btnindex=this.id.replace("btn","");
+    mylist.splice(btnindex,1);
+    showlist(mylist);
 
 
-//closes list item
-  for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      let li = this.parentElement;
-      li.style.display = "none";
     }
+
+    function priority()
+    {
+    let btnindex=this.id.replace("pri","")
+    let current=mylist[btnindex];
+    mylist.splice(btnindex,1);
+    if (btnindex==0)
+    {
+     mylist.push(current);
+    }
+    else
+    {
+      mylist.unshift(current);
+    }
+
+    showlist(mylist);
+
+
+    }
+
+    function striketext()
+    {
+
+       let myli=document.getElementsByTagName("LI");
+      let btnindex=this.id.replace("chk","")
+      if (myli[btnindex].style.textDecoration == "line-through")
+     {
+        myli[btnindex].style.textDecoration = "none";
+     }
+     else
+        {
+          myli[btnindex].style.textDecoration = "line-through";
+         }
+
+    }
+
+function add()
+{
+ var inputValue = document.getElementById("myInput").value;
+ if (inputValue.length== 0 || inputValue==null) {
+    alert("You must write something!");
+    return false;
+  } else {
+    mylist.push(inputValue);
+  }
+  document.getElementById("myInput").value = "";
+  showlist(mylist);
   }
 
-  //adds checkmark
-  for (let i = 0; i < nodelist.length; i++) {
-    let span = document.createElement("SPAN");
-    let check = document.createTextNode("\u2713");
-    span.className = "done";
-    span.appendChild(check);
-    nodelist[i].appendChild(span);
-  }
 
-    //draws line through list item
-      for (let i = 0; i < done.length; i++) {
-        done[i].onclick = function () {
-          let li = this.parentElement;
-          li.style.setProperty("text-decoration", "line-through");
-        }
-      }
-}
+function showlist(todolist)
+   {
+     eventList = "";
+     for (var i = 0; i<todolist.length; i++)
+     {
+       eventList += "<li>" + todolist[i] + "</li>";
+     }
+     document.getElementById("mytodolist").innerHTML = eventList;
+     let myli=document.getElementsByTagName("LI");
+     for (var i = 0; i < myli.length; i++)
+     {
+       var btnremove = document.createElement("button");
+       btnremove.innerHTML = "\u00D7";
+       btnremove.id='btn'+i;
+       myli[i].appendChild(btnremove);
+       document.getElementById('btn'+i).onclick=remove;
+
+       var btnchk = document.createElement("button");
+       btnchk.innerHTML = "&#10004";
+       btnchk.id='chk'+i;
+       myli[i].appendChild(btnchk);
+       document.getElementById('chk'+i).onclick=striketext;
+
+      var btnpri = document.createElement("button");
+       btnpri.innerHTML = "&#10071";
+       btnpri.id='pri'+i;
+       myli[i].appendChild(btnpri);
+       document.getElementById('pri'+i).onclick=priority;
+
+     }
+    }

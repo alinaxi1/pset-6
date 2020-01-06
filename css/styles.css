@@ -25,7 +25,7 @@ input {
   font-family: serif;
 }
 
-#add {
+#btnadd {
   border: 3px solid black;
   padding: 10px;
   width: 25%;
@@ -40,7 +40,7 @@ input {
   border-radius: 0;
 }
 
-#add:hover {
+#btnadd:hover {
   background-color: #bbb
 }
 
@@ -48,21 +48,13 @@ input {
   display:block;
 }
 
-.close {
-   display:inline-block;
-   vertical-align:right;
-   padding-left: 15px;
-   padding-right: 15px;
+button {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-.close:hover {
-  background-color: #f44336;
-  color: white;
-}
-
-.done:hover {
-  background-color: green;
-  color: white;
+button:onclick {
+  background-color: gray;
 }
 
 ul {
