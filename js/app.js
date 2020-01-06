@@ -57,10 +57,5 @@ function addEvent() {
   nodelist[i].appendChild(span);
 
     //draws line through list item
-      for (let i = 0; i < done.length; i++) {
-        done[i].onclick = function () {
-          let li = this.parentElement;
-          li.style.setProperty("text-decoration", "line-through");
-        }
-      }
+      
 }
