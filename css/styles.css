@@ -60,6 +60,10 @@ input {
   color: white;
 }
 
+.done:onclick {
+  text-decoration: none;
+}
+
 .done:hover {
   background-color: green;
   color: white;
