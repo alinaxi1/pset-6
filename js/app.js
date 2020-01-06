@@ -26,17 +26,8 @@ function addEvent() {
     nodelist[i].appendChild(span);
   }
 
-
-//closes list item
-  for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      let li = this.parentElement;
-      li.style.display = "none";
-    }
-  }
-
   //adds checkmark
-    
+
 
     //draws line through list item
       for (let i = 0; i < done.length; i++) {
