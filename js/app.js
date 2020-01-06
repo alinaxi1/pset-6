@@ -34,11 +34,11 @@ function addEvent() {
   document.getElementById("input").value = "";
 
 //adds "x"
-let span = document.createElement("SPAN");
-let txt = document.createTextNode("\u00D7");
-span.className = "close";
-span.appendChild(txt);
-nodelist[i].appendChild(span);
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  nodelist[i].appendChild(span);
 
 
 //closes list item
