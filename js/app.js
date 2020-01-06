@@ -5,6 +5,15 @@ let nodelist = document.getElementsByTagName("LI");
 let close = document.getElementsByClassName("close");
 let done = document.getElementsByClassName("done");
 
+for (let i = 0; i < nodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let check = document.createTextNode("\u2713");
+  span.className = "done";
+  span.appendChild(check);
+  nodelist[i].appendChild(span);
+}
+
+
 function addEvent() {
   let input = document.getElementById('input').value;
   let entry = document.createElement('li');
@@ -36,14 +45,12 @@ function addEvent() {
   }
 
   //adds checkmark
-    for (let i = 0; i < nodelist.length; i++) {
-      let span = document.createElement("SPAN");
-      let check = document.createTextNode("\u2713");
-      span.className = "done";
-      span.appendChild(check);
-      nodelist[i].appendChild(span);
-    }
-
+  let span = document.createElement("SPAN");
+  let check = document.createTextNode("\u2713");
+  span.className = "done";
+  span.appendChild(check);
+  nodelist[i].appendChild(span);
+  
     //draws line through list item
       for (let i = 0; i < done.length; i++) {
         done[i].onclick = function () {
