@@ -64,11 +64,13 @@ function addEvent() {
   }
 
   //adds checkmark
-  let span = document.createElement("SPAN");
-  let check = document.createTextNode("\u2713");
-  span.className = "done";
-  span.appendChild(check);
-  nodelist[i].appendChild(span);
+  for (let i = 0; i < nodelist.length; i++) {
+    let span = document.createElement("SPAN");
+    let check = document.createTextNode("\u2713");
+    span.className = "done";
+    span.appendChild(check);
+    nodelist[i].appendChild(span);
+  }
 
     //draws line through list item
       for (let i = 0; i < done.length; i++) {
