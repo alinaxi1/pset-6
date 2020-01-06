@@ -26,8 +26,23 @@ function addEvent() {
     nodelist[i].appendChild(span);
   }
 
-  //adds checkmark
 
+//closes list item
+  for (let i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      let li = this.parentElement;
+      li.style.display = "none";
+    }
+  }
+
+  //adds checkmark
+    for (let i = 0; i < nodelist.length; i++) {
+      let span = document.createElement("SPAN");
+      let check = document.createTextNode("\u2713");
+      span.className = "done";
+      span.appendChild(check);
+      nodelist[i].appendChild(span);
+    }
 
     //draws line through list item
       for (let i = 0; i < done.length; i++) {
