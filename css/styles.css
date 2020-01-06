@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #fff2e6
+  background-color: #e6ccff;
 }
 
 h1 {
@@ -58,10 +58,6 @@ input {
 .close:hover {
   background-color: #f44336;
   color: white;
-}
-
-.done:onclick {
-  text-decoration: none;
 }
 
 .done:hover {
