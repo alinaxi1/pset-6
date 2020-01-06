@@ -13,6 +13,13 @@ for (let i = 0; i < nodelist.length; i++) {
   nodelist[i].appendChild(span);
 }
 
+for (let i = 0; i < nodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  nodelist[i].appendChild(span);
+}
 
 function addEvent() {
   let input = document.getElementById('input').value;
@@ -27,13 +34,11 @@ function addEvent() {
   document.getElementById("input").value = "";
 
 //adds "x"
-  for (let i = 0; i < nodelist.length; i++) {
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    nodelist[i].appendChild(span);
-  }
+let span = document.createElement("SPAN");
+let txt = document.createTextNode("\u00D7");
+span.className = "close";
+span.appendChild(txt);
+nodelist[i].appendChild(span);
 
 
 //closes list item
@@ -50,7 +55,7 @@ function addEvent() {
   span.className = "done";
   span.appendChild(check);
   nodelist[i].appendChild(span);
-  
+
     //draws line through list item
       for (let i = 0; i < done.length; i++) {
         done[i].onclick = function () {
